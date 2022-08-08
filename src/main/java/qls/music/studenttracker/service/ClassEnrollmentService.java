@@ -20,10 +20,9 @@ public class ClassEnrollmentService {
 	 }
 
 	 public List<Long> findStudents(Long classId) {
-		 ClassEnrollmentId classEnrollmentId = new ClassEnrollmentId();
-		 classEnrollmentId.setClassId(classId);
-		 List<ClassEnrollment> classEnrollments = classEnrollmentRepository.findByIdClassId(classId);
 		 List<Long> studentIds = new ArrayList<Long>();
+		 
+		 List<ClassEnrollment> classEnrollments = classEnrollmentRepository.findByIdClassId(classId);
 		 for(ClassEnrollment temp : classEnrollments) {
 			  studentIds.add(temp.getId().getStudentId());
 		 }
