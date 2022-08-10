@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import qls.music.studenttracker.model.ClassEnrollment;
-import qls.music.studenttracker.model.ClassEnrollmentId;
 import qls.music.studenttracker.repository.ClassEnrollmentRepository;
 
 @Service
