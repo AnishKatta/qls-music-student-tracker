@@ -8,6 +8,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class ClassEnrollmentId implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Column(name="student_id")
 	private Long studentId;
 	

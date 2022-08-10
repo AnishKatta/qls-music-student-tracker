@@ -7,6 +7,8 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class JournalId implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "journal_id")
 	private Long journalId;
 

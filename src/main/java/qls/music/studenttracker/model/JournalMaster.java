@@ -12,33 +12,32 @@ import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "journal_master")
 public class JournalMaster {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
 
-    @Column(name="class_id")
-    private Long classId;
+	@Column(name = "class_id")
+	private Long classId;
 
-    @Column(name="prompt")
-    private String prompt;
+	@Column(name = "prompt")
+	private String prompt;
 
-    @Column(name="assigned_date")
-    private Date assignedDate;
-    
-    @Column(name="due_date")
-    //@JsonProperty("due-date")
-    private Date dueDate;
-    
-    @Transient
-    @JsonInclude(Include.NON_NULL)
-    private Integer dueDaysFromToday;
+	@Column(name = "assigned_date")
+	private Date assignedDate;
+
+	@Column(name = "due_date")
+	// @JsonProperty("due-date")
+	private Date dueDate;
+
+	@Transient
+	@JsonInclude(Include.NON_NULL)
+	private Integer dueDaysFromToday;
 
 	public Integer getDueDaysFromToday() {
 		return dueDaysFromToday;
@@ -87,6 +86,4 @@ public class JournalMaster {
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
-
-
 }
