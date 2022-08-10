@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS public.journal
 (
     journal_id bigint NOT NULL,
     student_id bigint NOT NULL,
-    text character varying COLLATE pg_catalog."default" NOT NULL,
+    text character varying COLLATE pg_catalog."default",
     feedback_text character varying COLLATE pg_catalog."default",
     submitted_date date,
     CONSTRAINT journal_pkey PRIMARY KEY (journal_id, student_id),
