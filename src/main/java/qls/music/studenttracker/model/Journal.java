@@ -29,6 +29,14 @@ public class Journal {
 	public void setId(JournalId id) {
 		this.id = id;
 	}
+	
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
 
 	public String getFeedbackText() {
 		return feedbackText;
