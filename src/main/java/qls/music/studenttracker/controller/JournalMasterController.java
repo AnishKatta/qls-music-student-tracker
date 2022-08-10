@@ -19,4 +19,9 @@ public class JournalMasterController {
     public JournalMaster createJournal(@RequestBody JournalMaster journalMaster) {
         return journalMasterService.createJournal(journalMaster);
     }
+	
+	@RequestMapping(value="/updateJournal", method=RequestMethod.PUT)
+    public JournalMaster updateJournal(@RequestBody JournalMaster journalMaster) {
+        return journalMasterService.updateJournal(journalMaster.getId(), journalMaster.getDueDaysFromToday());
+    }
 }

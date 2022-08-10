@@ -1,11 +1,13 @@
 package qls.music.studenttracker.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import qls.music.studenttracker.model.JournalMaster;
 
 @Repository
-public interface JournalMasterRepository extends JpaRepository<JournalMaster,Long> {
-	
+public interface JournalMasterRepository extends CrudRepository<JournalMaster,Long> {
+	public Optional<JournalMaster> findById(Long id);
 }
