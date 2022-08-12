@@ -35,6 +35,9 @@ public class JournalMaster {
 	// @JsonProperty("due-date")
 	private Date dueDate;
 
+	@Column(name = "max_points")
+	private int maxPoints;
+
 	@Transient
 	@JsonInclude(Include.NON_NULL)
 	private Integer dueDaysFromToday;
@@ -85,5 +88,13 @@ public class JournalMaster {
 
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
+	}
+
+	public int getMaxPoints() {
+		return maxPoints;
+	}
+
+	public void setMaxPoints(int maxPoints) {
+		this.maxPoints = maxPoints;
 	}
 }

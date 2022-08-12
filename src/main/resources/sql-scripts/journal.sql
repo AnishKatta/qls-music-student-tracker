@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS public.journal
     text character varying COLLATE pg_catalog."default",
     feedback_text character varying COLLATE pg_catalog."default",
     submitted_date date,
+    earned_points smallint,
     CONSTRAINT journal_pkey PRIMARY KEY (journal_id, student_id),
     CONSTRAINT journal_journal_id_fkey FOREIGN KEY (journal_id)
         REFERENCES public.journal_master (id) MATCH SIMPLE

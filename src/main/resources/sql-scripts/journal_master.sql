@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS public.journal_master
     prompt character varying COLLATE pg_catalog."default" NOT NULL,
     assigned_date date,
     due_date date,
+    max_points smallint NOT NULL DEFAULT 100,
     CONSTRAINT journal_master_pkey PRIMARY KEY (id)
 )
 
