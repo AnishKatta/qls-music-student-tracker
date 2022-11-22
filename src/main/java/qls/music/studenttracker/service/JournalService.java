@@ -88,4 +88,9 @@ public class JournalService {
 		journalRepository.save(journal);
 		return journalRepository.findByIdJournalIdAndIdStudentId(journalId, studentId);
 	}
+	
+	public Journal findJournal( final Long journalId, final Long studentId) {
+		Journal journal =  journalRepository.findByIdJournalIdAndIdStudentId(journalId, studentId);
+		return journal == null ? new Journal() : journal;
+	}
 }

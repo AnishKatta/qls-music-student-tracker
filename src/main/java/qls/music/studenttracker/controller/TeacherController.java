@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import qls.music.studenttracker.model.Teacher;
 import qls.music.studenttracker.service.TeacherService;
 
 @RestController
@@ -15,8 +16,13 @@ public class TeacherController {
     TeacherService teacherService;
 	
 	@RequestMapping(value="/searchTeacher", method=RequestMethod.GET)
-	public boolean existsByEmailIdAndPassword(@RequestParam(name = "email_id") String emailId, 
+	public Teacher searchTeacher(@RequestParam(name = "email_id") String emailId, 
 			@RequestParam(name = "password") String password) {
-		return teacherService.existsByEmailIdAndPassword(emailId, password);
+		final boolean teacherFound = teacherService.existsByEmailIdAndPassword(emailId, password);
+		if(teacherFound) {
+			Teacher teacher = teacherService.findByEmailIdAndPassword(emailId, password);
+			return teacher;
+		}
+		return new Teacher();
 	}
 }

@@ -1,5 +1,7 @@
 package qls.music.studenttracker.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +25,10 @@ public class JournalMasterController {
 	@RequestMapping(value="/updateJournal", method=RequestMethod.PUT)
     public JournalMaster updateJournal(@RequestBody JournalMaster journalMaster) {
         return journalMasterService.updateJournal(journalMaster.getId(), journalMaster.getDueDaysFromToday());
+    }
+	
+	@RequestMapping(value="/getAllJournalMaster", method=RequestMethod.GET)
+    public List<JournalMaster> getAllJournalMaster() {
+        return journalMasterService.getAllJournalMaster();
     }
 }

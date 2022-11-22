@@ -30,13 +30,19 @@ public class JournalController {
     }
 
 	@RequestMapping(value = "/getCompletedJournalsForStudent", method = RequestMethod.GET)
-	public List<Journal> getCompletedJournalsForStudent(@RequestParam(name = "student_id") Long student_id) {
-		return journalService.getCompletedJournalsForStudent(student_id);
+	public List<Journal> getCompletedJournalsForStudent(@RequestParam(name = "student_id") Long studentId) {
+		return journalService.getCompletedJournalsForStudent(studentId);
 	}
 
 	@RequestMapping(value = "/getIncompleteJournalsForStudent", method = RequestMethod.GET)
 	public List<Journal> getIncompleteJournalsForStudent(@RequestParam(name = "student_id") Long student_id) {
 		return journalService.getIncompleteJournalsForStudent(student_id);
+	}
+	
+	@RequestMapping(value = "/findJournal", method = RequestMethod.GET)
+	public Journal isValidJournal(@RequestParam(name = "journal_id") Long journalId, 
+			@RequestParam(name = "student_id") Long studentId) {
+		return journalService.findJournal(journalId, studentId);
 	}
 
 	@RequestMapping(value = "/submitAssignment", method = RequestMethod.PUT)

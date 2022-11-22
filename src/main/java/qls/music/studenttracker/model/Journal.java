@@ -32,6 +32,13 @@ public class Journal {
 	@JsonInclude(Include.NON_NULL)
 	private Integer earnedPoints;
 
+	public Journal(JournalId id, String text) {
+		this.id = id;
+		this.text = text;
+	}
+	public Journal() {
+		// TODO Auto-generated constructor stub
+	}
 	public JournalId getId() {
 		return id;
 	}

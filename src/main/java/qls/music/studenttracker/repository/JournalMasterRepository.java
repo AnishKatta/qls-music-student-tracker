@@ -10,4 +10,5 @@ import qls.music.studenttracker.model.JournalMaster;
 @Repository
 public interface JournalMasterRepository extends CrudRepository<JournalMaster,Long> {
 	public Optional<JournalMaster> findById(Long id);
+	public Iterable<JournalMaster> findAll();
 }

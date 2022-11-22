@@ -3,6 +3,7 @@ package qls.music.studenttracker.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import qls.music.studenttracker.model.Student;
 import qls.music.studenttracker.repository.StudentRepository;
 
 @Service
@@ -21,6 +22,10 @@ public class StudentService {
 	 public boolean existsByEmailIdAndPassword(String emailId, String password) {
 	     return studentRepository.existsByEmailIdAndPassword(emailId, password);
 	 }
+	 
+	 public Student findByEmailIdAndPassword(String emailId, String password) {
+		 return studentRepository.findByEmailIdAndPassword(emailId, password);
+	 };
 
 	 /** DELETE
 	 public void deleteEmployee(Long empId) {

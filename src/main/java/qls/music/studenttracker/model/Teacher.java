@@ -24,5 +24,7 @@ public class Teacher {
     @Column(name="password")
     private String password;
 	
-
+    public boolean isValidTeacher() {
+  		return this.emailId != null;
+  	}
 }

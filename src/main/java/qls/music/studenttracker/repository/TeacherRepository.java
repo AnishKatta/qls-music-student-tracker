@@ -8,5 +8,6 @@ import qls.music.studenttracker.model.Teacher;
 @Repository
 public interface TeacherRepository extends JpaRepository<Teacher, Long> {
 	public boolean existsByEmailIdAndPassword(String emailId, String password);
+	public Teacher findByEmailIdAndPassword(String emailId, String password);
 
 }
