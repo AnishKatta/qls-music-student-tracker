@@ -9,6 +9,14 @@ import javax.persistence.Table;
 public class ClassEnrollment {
 	@EmbeddedId
 	private ClassEnrollmentId id;
+	
+	public ClassEnrollment(ClassEnrollmentId id) {
+		this.id = id;
+	}
+	
+	public ClassEnrollment() {
+		
+	}
 
 	public ClassEnrollmentId getId() {
 		return id;

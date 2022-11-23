@@ -1,5 +1,7 @@
 package qls.music.studenttracker.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +15,9 @@ public class ClassroomService {
 	
 	public Classroom createClassroom(Classroom classroom) {
 		return classroomRepository.save(classroom);
+	}
+	
+	public List<Classroom> findAllClassrooms(){
+		return classroomRepository.findAll();
 	}
 }

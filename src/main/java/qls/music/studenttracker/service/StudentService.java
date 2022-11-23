@@ -1,5 +1,7 @@
 package qls.music.studenttracker.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,11 @@ public class StudentService {
 	 public Student findByEmailIdAndPassword(String emailId, String password) {
 		 return studentRepository.findByEmailIdAndPassword(emailId, password);
 	 };
+	 
+	 public List<Student> findAllStudents(){
+		 return studentRepository.findAll();
+	 }
+	 
 
 	 /** DELETE
 	 public void deleteEmployee(Long empId) {

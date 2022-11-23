@@ -1,5 +1,7 @@
 package qls.music.studenttracker.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +17,16 @@ public class ClassroomController {
 	@Autowired
 	ClassroomService classroomService;
 	
-	@RequestMapping(value="/classroom", method=RequestMethod.POST)
+	@RequestMapping(value="/createClassroom", method=RequestMethod.POST)
 	public Classroom createClassroom(@RequestBody Classroom classroom) {
-		System.out.println("hi");
+		//System.out.println("hi");
 	    return classroomService.createClassroom(classroom);
 	}
+	
+	@RequestMapping(value="/findAllClassrooms", method=RequestMethod.GET)
+	public List<Classroom> findAllClassrooms() {
+	    return classroomService.findAllClassrooms();
+	}
+	
+	
 }

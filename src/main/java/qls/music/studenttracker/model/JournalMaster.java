@@ -1,5 +1,7 @@
 package qls.music.studenttracker.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -37,6 +39,17 @@ public class JournalMaster {
 
 	@Column(name = "max_points")
 	private int maxPoints;
+	
+	public JournalMaster(Long classId, String prompt, int maxPoints) throws ParseException {
+		this.classId = classId;
+		this.prompt = prompt;
+		this.maxPoints = maxPoints;
+	} 
+	
+	
+	public JournalMaster() {
+		
+	}
 
 	@Transient
 	@JsonInclude(Include.NON_NULL)

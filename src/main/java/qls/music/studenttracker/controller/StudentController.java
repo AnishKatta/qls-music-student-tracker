@@ -1,5 +1,7 @@
 package qls.music.studenttracker.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +37,12 @@ public class StudentController {
     	Student student = studentService.findByEmailIdAndPassword(emailId, password);
         return student;
     }
+    
+    @RequestMapping(value="/findAllStudents", method=RequestMethod.GET)
+    public List<Student> findAllStudents() {
+    	return studentService.findAllStudents();
+    }
+    
     
     
 }

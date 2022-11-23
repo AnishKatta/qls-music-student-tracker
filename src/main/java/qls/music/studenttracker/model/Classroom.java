@@ -23,6 +23,15 @@ public class Classroom {
 	@Column(name = "name")
 	private String name;
 	
+	public Classroom(Long teacherId, String name) {
+		this.teacherId = teacherId;
+		this.name = name;
+	}
+	
+	public Classroom() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}
