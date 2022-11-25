@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>qls-music</groupId>
-	<artifactId>qls-music-student-tracker</artifactId>
+	<artifactId>qls-music-student-tracker-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>qls-music-student-tracker</name>
+	<name>qls-music-student-tracker-server</name>
 	<description>An application for my music teacher to keep track of his students&apos; journal completion and progress. </description>
 	<properties>
 		<java.version>1.8</java.version>
