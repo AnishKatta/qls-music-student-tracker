@@ -56,4 +56,26 @@ public class JournalController {
 		return journalService.giveFeedback(journal.getFeedbackText(), journal.getId().getJournalId(),
 				journal.getId().getStudentId(), journal.getEarnedPoints());
 	}
+	
+	@RequestMapping(value = "/getCompletedJournals", method = RequestMethod.GET)
+	public List<Journal> getCompletedJournals() throws Exception {
+		return journalService.findAllCompletedJournals();
+	}
+	
+	@RequestMapping(value = "/findSomeJournals", method = RequestMethod.GET)
+	public List<Journal> findSomeJournals(@RequestParam(name = "student_id")Long studentId) throws Exception {
+		return journalService.findSomeJournals(studentId);
+	}
+	
+	@RequestMapping(value = "/findIncompleteJournals", method = RequestMethod.GET)
+	public List<Journal> findIncompleteJournals(@RequestParam(name = "journal_id")Long journalId) throws Exception {
+		return journalService.findIncompleteJournals(journalId);
+	}
+	
+	@RequestMapping(value = "/findUngradedAssignments", method = RequestMethod.GET)
+	public List<Journal> findUngradedAssignments(@RequestParam(name = "journal_id")Long journalId) throws Exception {
+		return journalService.findUngradedAssignments(journalId);
+	}
+	
+	
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import qls.music.studenttracker.model.Student;
+import qls.music.studenttracker.service.ClassEnrollmentService;
 import qls.music.studenttracker.service.StudentService;
 
 @RestController
@@ -18,6 +19,8 @@ public class StudentController {
 	
     @Autowired
     StudentService studentService;
+    
+    ClassEnrollmentService classEnrollmentService;
     
     
     @RequestMapping(value="/studentLogin", method=RequestMethod.GET)
@@ -42,6 +45,15 @@ public class StudentController {
     public List<Student> findAllStudents() {
     	return studentService.findAllStudents();
     }
+    
+    @RequestMapping(value="/getStudentsFromClassroom", method=RequestMethod.GET)
+    public List<Student> getStudentsFromClassroom(@RequestParam(name = "class_id") Long classId){
+    	return studentService.findAllById(classId);
+    }
+    
+    
+    
+    
     
     
     

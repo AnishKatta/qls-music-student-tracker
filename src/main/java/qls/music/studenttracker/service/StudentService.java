@@ -14,11 +14,8 @@ public class StudentService {
 	 @Autowired
      StudentRepository studentRepository;
 	 
-	/**CREATE 
-	 public Employee createEmployee(Employee emp) {
-	     return empRepository.save(emp);
-	 }
-	 **/
+	 @Autowired
+	 ClassEnrollmentService classEnrollmentService;
 
 	 // READ
 	 public boolean existsByEmailIdAndPassword(String emailId, String password) {
@@ -33,22 +30,8 @@ public class StudentService {
 		 return studentRepository.findAll();
 	 }
 	 
-
-	 /** DELETE
-	 public void deleteEmployee(Long empId) {
-	     empRepository.deleteById(empId);
+	 public List<Student> findAllById(Long classId){
+		 List<Long> studentIds = classEnrollmentService.findStudents(classId);
+		 return studentRepository.findAllById(studentIds);
 	 }
-	 **/
-	 
-	/** UPDATE
-	 public Employee updateEmployee(Long empId, Employee employeeDetails) {
-	         Employee emp = empRepository.findById(empId).get();
-	         emp.setFirstName(employeeDetails.getFirstName());
-	         emp.setLastName(employeeDetails.getLastName());
-	         emp.setEmailId(employeeDetails.getEmailId());
-	         
-	         return empRepository.save(emp);                                
-	 }
-	 **/
-
 }

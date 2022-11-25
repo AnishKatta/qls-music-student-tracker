@@ -31,4 +31,8 @@ public class JournalMasterController {
     public List<JournalMaster> getAllJournalMaster() {
         return journalMasterService.getAllJournalMaster();
     }
+	
+	
+	
+	
 }

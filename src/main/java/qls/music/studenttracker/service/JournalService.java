@@ -93,4 +93,20 @@ public class JournalService {
 		Journal journal =  journalRepository.findByIdJournalIdAndIdStudentId(journalId, studentId);
 		return journal == null ? new Journal() : journal;
 	}
+	
+	public List<Journal> findAllCompletedJournals(){
+		return journalRepository.findAllCompletedJournals();
+	}
+	
+	public List<Journal> findSomeJournals(Long studentId){
+		return journalRepository.findJournalsForStudent(studentId);
+	}
+	
+	public List<Journal> findIncompleteJournals(Long journalId){
+		return journalRepository.findIncompleteJournals(journalId);
+	}
+	
+	public List<Journal> findUngradedAssignments(Long journalId){
+		return journalRepository.findUngradedAssignments(journalId);
+	}
 }

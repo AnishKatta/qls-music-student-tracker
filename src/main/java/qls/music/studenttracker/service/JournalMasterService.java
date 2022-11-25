@@ -39,4 +39,8 @@ public class JournalMasterService {
 	public List<JournalMaster> getAllJournalMaster(){
 		return (List<JournalMaster>) journalMasterRepository.findAll();
 	}
+	
+	
+	
+	
 }
