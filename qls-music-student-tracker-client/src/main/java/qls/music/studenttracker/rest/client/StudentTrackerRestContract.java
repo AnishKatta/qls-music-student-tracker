@@ -18,14 +18,10 @@ import retrofit2.http.Query;
 
 public interface StudentTrackerRestContract {
 	
-	
-	
 	@GET("/api/getCompletedJournalsForStudent")
 	Call<List<Journal>> getCompletedJournalsForStudent(
 			@Query("student_id") final String studentId
 			);
-	
-	
 	
 	@GET("/api/getIncompleteJournalsForStudent")
 	Call<List<Journal>> getIncompleteJournalsForStudent(
@@ -42,7 +38,6 @@ public interface StudentTrackerRestContract {
 			@Query("journal_id") final Long journalId
 			);
 	
-	
 	@GET("/api/studentLogin")
 	Call<Student> studentLogin(
 			@Query("email_id") final String emailId, 
@@ -51,8 +46,6 @@ public interface StudentTrackerRestContract {
 	
 	@GET("/api/findAllStudents")
 	Call<List<Student>> findAllStudents();
-	
-	
 	
 /**
 	@GET("/api/getStudent")
@@ -119,11 +112,4 @@ public interface StudentTrackerRestContract {
 	Call<Journal> giveFeedback(
 			@Body Journal journal
 			);
-	
-	
-	
-	
-	
-	
-		
 }

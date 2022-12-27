@@ -2,7 +2,6 @@ package qls.music.studenttracker.driver;
 
 import java.io.Console;
 import java.io.IOException;
-
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,13 +49,19 @@ public class TeacherOperations {
 		Scanner myObj = new Scanner(System.in).useDelimiter("\n");
 		boolean inAccount = true;
 		while (inAccount) {
-			System.out.println("Please choose the following options: \n " + "1.  vas - view all students \n"
-					+ "2.  vc  - view classrooms \n" + "3.  cc  - create classroom \n"
-					+ "4.  e   - enroll students into classroom \n" + "5.  vcs - view classroom students \n"
-					+ "6.  c   - create journal assignments \n" + "7.  a   - assign journals  \n"
+			System.out.println("Please choose the following options: \n " 
+					+ "1.  vas - view all students \n"
+					+ "2.  vc  - view classrooms \n" 
+					+ "3.  cc  - create classroom \n"
+					+ "4.  e   - enroll students into classroom \n" 
+					+ "5.  vcs - view classroom students \n"
+					+ "6.  c   - create journal assignments \n" 
+					+ "7.  a   - assign journals  \n"
 					+ "8.  vca - view created assignments \n"
 					+ "9.  vs  - view incomplete submissions for journal assignments \n"
-					+ "10. vus - view ungraded submissions \n" + "11. gf  - give feedback \n" + "12. q   - quit): ");
+					+ "10. vus - view ungraded submissions \n" 
+					+ "11. gf  - give feedback \n" 
+					+ "12. q   - quit): ");
 			System.out.print("Enter your choice: ");
 			String option = myObj.nextLine();
 			if (option.equals("vas")) {
@@ -125,8 +130,6 @@ public class TeacherOperations {
 		client.createClassroom(classroom);
 	}
 
-	
-	
 	@SuppressWarnings("resource")
 	private void enrollStudentIntoClassroom() throws IOException {
 		long studentId = UserInputUtil.getLongNumber("Student ID");
@@ -135,11 +138,6 @@ public class TeacherOperations {
 		ClassEnrollment classEnrollment = new ClassEnrollment(classEnrollmentId);
 		client.enrollStudent(classEnrollment);
 	}
-	
-	
-	
-	
-	
 
 	private void viewClassroomStudents() throws IOException {
 		long classId = UserInputUtil.getLongNumber("Class ID");
