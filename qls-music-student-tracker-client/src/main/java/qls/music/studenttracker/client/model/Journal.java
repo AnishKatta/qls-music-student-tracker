@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class Journal extends DataTable {
-	
+
 	private JournalId id;
 
 	@JsonInclude(Include.NON_NULL)
@@ -21,27 +21,24 @@ public class Journal extends DataTable {
 
 	@JsonInclude(Include.NON_NULL)
 	private Date submittedDate;
-	
+
 	@JsonInclude(Include.NON_NULL)
 	private Date dueDate;
 
 	@JsonInclude(Include.NON_NULL)
 	private Integer earnedPoints;
-	
+
 	@JsonInclude(Include.NON_NULL)
 	private Integer maxPoints;
-	
 
 	@JsonInclude(Include.NON_NULL)
 	private String prompt;
-	
-
 
 	public Journal(JournalId id, String text) {
 		this.id = id;
 		this.text = text;
 	}
-	
+
 	public Journal() {
 		// TODO Auto-generated constructor stub
 	}
@@ -77,7 +74,7 @@ public class Journal extends DataTable {
 	public void setSubmittedDate(Date submittedDate) {
 		this.submittedDate = submittedDate;
 	}
-	
+
 	public Date getDueDate() {
 		return dueDate;
 	}
@@ -93,7 +90,7 @@ public class Journal extends DataTable {
 	public void setEarnedPoints(Integer earnedPoints) {
 		this.earnedPoints = earnedPoints;
 	}
-	
+
 	public Integer getMaxPoints() {
 		return maxPoints;
 	}
@@ -101,7 +98,7 @@ public class Journal extends DataTable {
 	public void setMaxPoints(Integer maxPoints) {
 		this.maxPoints = maxPoints;
 	}
-	
+
 	public String getPrompt() {
 		return prompt;
 	}
@@ -109,7 +106,7 @@ public class Journal extends DataTable {
 	public void setPrompt(String prompt) {
 		this.prompt = prompt;
 	}
-	
+
 	@JsonIgnore
 	@Override
 	public String[] getHeaderColumns() {
@@ -123,24 +120,24 @@ public class Journal extends DataTable {
 		headers[6] = "Points earned";
 		return headers;
 	}
-	
+
 	@JsonIgnore
 	@Override
 	public String[] getColumnValues() {
-		final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+		final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		final String strDate;
-		if(this.submittedDate!=null) {
+		if (this.submittedDate != null) {
 			strDate = dateFormat.format(this.submittedDate);
-		}else {
+		} else {
 			strDate = "";
 		}
-		
+
 		final String[] row = new String[7];
 		row[0] = String.valueOf(this.id.getJournalId());
-		row[1] = this.prompt; 
-		row[2] = this.text; 
+		row[1] = this.prompt;
+		row[2] = this.text;
 		row[3] = strDate;
-		row[4] = this.feedbackText != null ? this.feedbackText : "-"; 
+		row[4] = this.feedbackText != null ? this.feedbackText : "-";
 		row[5] = this.maxPoints != null ? String.valueOf(this.maxPoints) : "-";
 		row[6] = this.earnedPoints != null ? String.valueOf(this.earnedPoints) : "-";
 		return row;

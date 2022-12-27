@@ -1,5 +1,6 @@
 package qls.music.studenttracker.driver;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +26,14 @@ public class StudentOperations {
 
 	@SuppressWarnings("resource")
 	public Student login() throws IOException {
+		Console cnsl = System.console();
 		Scanner myObj = new Scanner(System.in).useDelimiter("\n");
 		System.out.print("Student User Id: ");
 		String username = myObj.next();
-		System.out.print("Student Password: ");
-		String password = myObj.next();
-		Student student = client.studentLogin(username, password);
+//		System.out.print("Student Password: ");
+//		String password = myObj.next();
+		char[] password = cnsl.readPassword("Student Password: ");
+		Student student = client.studentLogin(username, String.valueOf(password));
 		return student;
 	}
 

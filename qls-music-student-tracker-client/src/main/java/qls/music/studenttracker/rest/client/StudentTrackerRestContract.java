@@ -2,6 +2,7 @@ package qls.music.studenttracker.rest.client;
 
 import java.util.List;
 
+
 import qls.music.studenttracker.client.model.ClassEnrollment;
 import qls.music.studenttracker.client.model.Classroom;
 import qls.music.studenttracker.client.model.Journal;
@@ -17,10 +18,14 @@ import retrofit2.http.Query;
 
 public interface StudentTrackerRestContract {
 	
+	
+	
 	@GET("/api/getCompletedJournalsForStudent")
 	Call<List<Journal>> getCompletedJournalsForStudent(
 			@Query("student_id") final String studentId
 			);
+	
+	
 	
 	@GET("/api/getIncompleteJournalsForStudent")
 	Call<List<Journal>> getIncompleteJournalsForStudent(
@@ -103,6 +108,7 @@ public interface StudentTrackerRestContract {
 	Call<ClassEnrollment> enrollStudent(
 			@Body ClassEnrollment classEnrollment 
 			);
+	
 	
 	@GET("/api/getStudentsFromClassroom")
 	Call<List<Student>> getStudentsFromClassroom(
