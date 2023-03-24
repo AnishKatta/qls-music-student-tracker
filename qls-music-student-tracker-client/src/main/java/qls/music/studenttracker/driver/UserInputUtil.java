@@ -39,7 +39,7 @@ public class UserInputUtil {
 			Long.parseLong(input);
 			return true;
 		} catch (NumberFormatException e) {
-			System.out.println("Not a valid number: " + input);
+			System.out.println("Not a valid number");
 			return false;
 		}
 	}
@@ -49,7 +49,7 @@ public class UserInputUtil {
 			Integer.parseInt(input);
 			return true;
 		} catch (NumberFormatException e) {
-			System.out.println("Not a valid number: " + input);
+			System.out.println("Not a valid number: ");
 			return false;
 		}
 	}

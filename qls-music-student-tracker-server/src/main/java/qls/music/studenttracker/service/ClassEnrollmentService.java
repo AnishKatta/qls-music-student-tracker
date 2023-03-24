@@ -27,5 +27,9 @@ public class ClassEnrollmentService {
 		 return studentIds;
 	 }
 	 
+	 public boolean studentEnrolled(Long studentId) {
+		 return classEnrollmentRepository.existsByIdStudentId(studentId);
+	 }
+	 
 
 }

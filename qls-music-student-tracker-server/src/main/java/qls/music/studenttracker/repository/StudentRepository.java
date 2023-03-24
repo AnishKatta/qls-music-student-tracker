@@ -21,4 +21,6 @@ public interface StudentRepository extends JpaRepository<Student,Long> {
 	
 	public List<Student> findAllById(Iterable<Long> studentIds);
 	
+	public boolean existsById(Long id);
+	
 }

@@ -2,6 +2,7 @@ package qls.music.studenttracker.driver;
 
 import java.io.IOException;
 
+
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
@@ -20,33 +21,35 @@ public class Driver {
 
 	@SuppressWarnings("resource")
 	public static void main(String args[]) throws IOException, ParseException {
-		final StudentOperations studentOperations;
-		final TeacherOperations teacherOperations;
 		System.out.println("Welcome to the music tracker system!");
 		Scanner myObj = new Scanner(System.in).useDelimiter("\n");
 		Driver driver = new Driver();
 		driver.loadCache();
-		studentOperations = new StudentOperations(driver.client, driver.journalMasterDictionary);
-		teacherOperations = new TeacherOperations(driver.client, driver.journalMasterDictionary);
 		while (true) {
+			System.out.println();
 			System.out.println("Please choose the following options: \n"
 					+ " s - student \n"
 					+ " t - teacher \n"
-					+ " q - quit: ");
+					+ " q - quit");
 			System.out.print("Enter your choice: ");
 			String user = myObj.next();
 			if (user.equals("s")) {
+				driver.loadCache();
+				StudentOperations studentOperations = new StudentOperations(driver.client, driver.journalMasterDictionary);
 				Student student = studentOperations.login();
 				if (student != null && student.isValidStudent()) {
 					studentOperations.perform(student);
+				}else {
+					System.out.println("Incorrect login information!");
 				}
-				System.out.println("Incorrect login information!");
 			} else if (user.equals("t")) {
+				TeacherOperations teacherOperations = new TeacherOperations(driver.client, driver.journalMasterDictionary);
 				Teacher teacher = teacherOperations.login();
 				if (teacher != null && teacher.isValidTeacher()) {
 					teacherOperations.perform(teacher);
+				}else {
+					System.out.println("Incorrect login information!");
 				}
-				System.out.println("Incorrect login information!");
 			} else if (user.equals("q")) {
 				System.out.println("Program terminated!");
 				System.exit(0);
@@ -62,5 +65,4 @@ public class Driver {
 			journalMasterDictionary.put(journalMaster.getId(), journalMaster);
 		}
 	}
-
 }

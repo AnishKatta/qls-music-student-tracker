@@ -9,7 +9,6 @@ import qls.music.studenttracker.client.model.DataTable;
 
 public class DisplayUtil {
 	
-	
 	public static void render(final List<? extends DataTable> results) {
 		String[] headers = results.get(0).getHeaderColumns();
 		String[][] data = new String[results.size()][headers.length];

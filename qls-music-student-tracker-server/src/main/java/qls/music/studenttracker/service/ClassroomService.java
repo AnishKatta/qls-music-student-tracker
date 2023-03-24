@@ -20,4 +20,12 @@ public class ClassroomService {
 	public List<Classroom> findAllClassrooms(){
 		return classroomRepository.findAll();
 	}
+	
+	public boolean classroomExists(Long classId) {
+		return classroomRepository.existsById(classId);
+	}
+	
+	public Classroom findById(Long classId) {
+		return classroomRepository.findById(classId).get();
+	}
 }

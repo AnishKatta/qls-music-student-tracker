@@ -60,10 +60,24 @@ public class StudentTrackerRestClient {
 		return contract.findAllStudents().execute().body();
 	}
 	
+	public Student findStudent(Long id) throws IOException{
+		return contract.findStudentById(id).execute().body();
+	}
+	
 	public List<Student> getStudentsFromClassroom(Long classId) throws IOException{
 		return contract.getStudentsFromClassroom(classId).execute().body();
 	}
 	
+	public boolean classroomExists(Long classId) throws IOException {
+		return contract.classroomExists(classId).execute().body();
+	}
+	public boolean studentEnrolled(Long studentId) throws IOException {
+		return contract.studentEnrolled(studentId).execute().body();
+	}
+	
+	public boolean studentExists(Long id) throws IOException {
+		return contract.studentExists(id).execute().body();
+	}
 	
 
 	
@@ -85,6 +99,10 @@ public class StudentTrackerRestClient {
 		return contract.findAllClassrooms().execute().body();
 	}
 	
+	public Classroom findClassroom(Long id) throws IOException{
+		return contract.findClassroomById(id).execute().body();
+	}
+	
 	public Classroom createClassroom(Classroom classroom) throws IOException{
 		return contract.createClassroom(classroom).execute().body();
 	}
@@ -101,9 +119,23 @@ public class StudentTrackerRestClient {
 		return contract.assignJournal(journalMaster).execute().body();
 	}
 	
+	public boolean journalMasterExists(Long id) throws IOException {
+		return contract.journalMasterExists(id).execute().body();
+	}
+	
+	public boolean journalExists(Long journalId) throws IOException {
+		return contract.journalExists(journalId).execute().body();
+	}
+	
 	public Journal giveFeedback(Journal journal) throws IOException {
 		return contract.giveFeedback(journal).execute().body();
 	}
+	
+	public boolean validFeedback(Long journalId, Long studentId) throws IOException {
+		return contract.validFeedback(journalId, studentId).execute().body();
+	}
+	
+	
 	
 
 	

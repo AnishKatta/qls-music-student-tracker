@@ -47,6 +47,11 @@ public interface StudentTrackerRestContract {
 	@GET("/api/findAllStudents")
 	Call<List<Student>> findAllStudents();
 	
+	@GET("/api/findStudentById")
+	Call<Student> findStudentById(
+			@Query("id") final Long id
+			);
+	
 /**
 	@GET("/api/getStudent")
 	Call<Student> getStudent(
@@ -85,17 +90,31 @@ public interface StudentTrackerRestContract {
 	Call<Integer> assignJournal(
 			@Body JournalMaster journalMaster
 			);
-
 	
+	@GET("/api/journalMasterExists")
+	Call<Boolean> journalMasterExists(
+			@Query("id") final Long id
+			);
+	
+	@GET("/api/journalExists")
+	Call<Boolean> journalExists(
+			@Query("journal_id") final Long journalId
+			);
+
 	@GET("/api/findAllClassrooms")
 	Call<List<Classroom>> findAllClassrooms();
+	
+	
+	@GET("/api/findClassroomById")
+	Call<Classroom> findClassroomById(
+			@Query("id") final Long id
+			);
 	
 	
 	@POST("/api/createClassroom")
 	Call<Classroom> createClassroom(
 			@Body Classroom classroom 
 			);
-	
 	
 	@POST("/api/enrollStudent")
 	Call<ClassEnrollment> enrollStudent(
@@ -108,8 +127,34 @@ public interface StudentTrackerRestContract {
 			@Query("class_id") final Long classId
 			);
 	
+	@GET("/api/classroomExists")
+	Call<Boolean> classroomExists(
+			@Query("id") final Long classId
+			);
+	
+	@GET("/api/studentEnrolled")
+	Call<Boolean> studentEnrolled(
+			@Query("student_id") final Long studentId
+			);
+	
+	@GET("/api/studentExists")
+	Call<Boolean> studentExists(
+			@Query("id") final Long id
+			);
+	
+	
 	@PUT("/api/giveFeedback")
 	Call<Journal> giveFeedback(
 			@Body Journal journal
 			);
+	
+	@GET("/api/validFeedback")
+	Call<Boolean> validFeedback(
+			@Query("journal_id") final Long journalId,
+			@Query("student_id") final Long studentId
+			);
+	
+	
+	
+	
 }

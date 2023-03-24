@@ -14,6 +14,8 @@ import qls.music.studenttracker.model.JournalId;
 public interface JournalRepository extends CrudRepository<Journal, JournalId> {
 
 	public boolean existsByIdJournalId(Long id);
+	
+	public boolean existsByIdJournalIdAndIdStudentId(Long journal_id, Long student_id);
 
 	public List<Journal> findByIdStudentId(Long id);
 
@@ -38,4 +40,5 @@ public interface JournalRepository extends CrudRepository<Journal, JournalId> {
 	@Query("SELECT j FROM Journal j WHERE j.id.studentId = :pStudentId" 
 			  )
 	public List<Journal> findJournalsForStudent(@Param("pStudentId")Long studentId);
+	
 }

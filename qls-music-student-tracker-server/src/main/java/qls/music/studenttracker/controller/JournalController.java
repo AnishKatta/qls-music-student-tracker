@@ -77,5 +77,21 @@ public class JournalController {
 		return journalService.findUngradedAssignments(journalId);
 	}
 	
+	@RequestMapping(value = "/journalExists", method = RequestMethod.GET)
+	public boolean journalExists(@RequestParam(name = "journal_id")Long journalId) throws Exception {
+		return journalService.journalExists(journalId);
+	}
+	
+	@RequestMapping(value = "/validFeedback", method = RequestMethod.GET)
+	public boolean validFeedback(@RequestParam(name = "journal_id")Long journalId, 
+			@RequestParam(name = "student_id")Long studentId) {
+			return journalService.validFeedack(journalId, studentId);
+	
+	}
+	
+	
+	
+	
+	
 	
 }

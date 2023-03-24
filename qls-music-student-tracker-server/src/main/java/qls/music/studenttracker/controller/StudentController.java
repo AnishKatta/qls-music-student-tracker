@@ -38,6 +38,13 @@ public class StudentController {
 		Student student = studentService.findByEmailIdAndPassword(emailId, password);
 		return student;
 	}
+	
+	@RequestMapping(value = "/findStudentById", method = RequestMethod.GET)
+	public Student findStudentById(@RequestParam(name = "id") Long id) {
+		Student student = studentService.findById(id);
+		return student;
+	}
+	
 
 	@RequestMapping(value = "/findAllStudents", method = RequestMethod.GET)
 	public List<Student> findAllStudents() {
@@ -48,4 +55,13 @@ public class StudentController {
 	public List<Student> getStudentsFromClassroom(@RequestParam(name = "class_id") Long classId) {
 		return studentService.findAllById(classId);
 	}
+	
+	@RequestMapping(value = "/studentExists", method = RequestMethod.GET)
+	public boolean studentExists(@RequestParam(name = "id") Long id) {
+		return studentService.studentExists(id);
+	}
+	
+	
+	
+	
 }

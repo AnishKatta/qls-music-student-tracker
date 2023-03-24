@@ -40,6 +40,10 @@ public class JournalMasterService {
 		return (List<JournalMaster>) journalMasterRepository.findAll();
 	}
 	
+	public boolean journalMasterExists(Long id) {
+		return journalMasterRepository.existsById(id);
+	}
+	
 	
 	
 	

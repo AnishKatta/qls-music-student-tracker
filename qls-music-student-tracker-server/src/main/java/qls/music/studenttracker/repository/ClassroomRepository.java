@@ -11,5 +11,6 @@ import qls.music.studenttracker.model.Classroom;
 @Repository
 public interface ClassroomRepository extends JpaRepository<Classroom, Long>  {
 	public List<Classroom> findAll();
+	public boolean existsById(Long classId);
 
 }

@@ -11,4 +11,5 @@ import qls.music.studenttracker.model.ClassEnrollmentId;
 @Repository
 public interface ClassEnrollmentRepository extends CrudRepository<ClassEnrollment, ClassEnrollmentId> {
 	public List<ClassEnrollment> findByIdClassId(Long classId);
+	public boolean existsByIdStudentId(Long studentId);
 }

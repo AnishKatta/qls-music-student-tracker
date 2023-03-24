@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import qls.music.studenttracker.model.JournalMaster;
@@ -32,6 +33,11 @@ public class JournalMasterController {
         return journalMasterService.getAllJournalMaster();
     }
 	
+
+	@RequestMapping(value="/journalMasterExists", method=RequestMethod.GET)
+    public boolean journalMasterExists(@RequestParam(name = "id") Long id) {
+        return journalMasterService.journalMasterExists(id);
+    }
 	
 	
 	

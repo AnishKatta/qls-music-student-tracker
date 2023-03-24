@@ -17,7 +17,7 @@ public class StudentService {
 	 @Autowired
 	 ClassEnrollmentService classEnrollmentService;
 
-	 // READ
+
 	 public boolean existsByEmailIdAndPassword(String emailId, String password) {
 	     return studentRepository.existsByEmailIdAndPassword(emailId, password);
 	 }
@@ -33,5 +33,13 @@ public class StudentService {
 	 public List<Student> findAllById(Long classId){
 		 List<Long> studentIds = classEnrollmentService.findStudents(classId);
 		 return studentRepository.findAllById(studentIds);
+	 }
+	 
+	 public boolean studentExists(Long id) {
+		 return studentRepository.existsById(id);
+	 }
+	 
+	 public Student findById(Long id) {
+		 return studentRepository.findById(id).get();
 	 }
 }

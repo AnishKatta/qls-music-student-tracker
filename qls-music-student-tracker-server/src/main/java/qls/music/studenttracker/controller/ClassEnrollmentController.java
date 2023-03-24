@@ -27,4 +27,11 @@ public class ClassEnrollmentController {
     public List<Long> findStudents(@RequestParam(name = "class_id") Long classId) {
         return classEnrollmentService.findStudents(classId);
     }
+	
+	@RequestMapping(value="/studentEnrolled", method=RequestMethod.GET)
+    public boolean studentEnrolled(@RequestParam(name = "student_id") Long studentId) {
+        return classEnrollmentService.studentEnrolled(studentId);
+    }
+	
+	
 }

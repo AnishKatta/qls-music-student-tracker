@@ -109,4 +109,13 @@ public class JournalService {
 	public List<Journal> findUngradedAssignments(Long journalId){
 		return journalRepository.findUngradedAssignments(journalId);
 	}
+	
+	public boolean journalExists(Long journalId) {
+		return journalRepository.existsByIdJournalId(journalId);
+	}
+	
+	public boolean validFeedack(Long journalId, Long studentId) {
+		return journalRepository.existsByIdJournalIdAndIdStudentId(journalId, studentId);
+	}
+	
 }
